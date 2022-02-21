@@ -1,4 +1,11 @@
-# save-webpage.py
+#! usr/bin/env python
+
+'''
+IMPORTANT: to install pyenchant for ubuntu check out 
+$ sudo apt-get install -y libenchant-dev
+$pip install pyenchant 
+'''
+
 
 import urllib.request, urllib.error, urllib.parse
 import enchant #for the english dictionary
@@ -81,7 +88,12 @@ with open('scratch2.txt', 'r') as fi:
 print(lst)
 fi.close()
 
+nonsense = ['the','and','for','to','solid']
 
-
+for word in lst:
+    if word in lst == nonsense:
+        print(word)
+    else:
+        word is None
 
 
