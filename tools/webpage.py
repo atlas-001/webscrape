@@ -6,11 +6,11 @@ $ sudo apt-get install -y libenchant-dev
 $pip install pyenchant 
 '''
 
-
 import urllib.request, urllib.error, urllib.parse
 import enchant #for the english dictionary
 import html2text #for cleanup of html
 import os
+from collections import Counter
 
 
 ed = enchant.Dict("en_US") # voila the english dictionary
@@ -85,15 +85,9 @@ with open('scratch2.txt', 'r') as fi:
 
 
         
-print(lst)
+#print(lst)
 fi.close()
 
-nonsense = ['the','and','for','to','solid']
-
-for word in lst:
-    if word in lst == nonsense:
-        print(word)
-    else:
-        word is None
-
+word_count = Counter(lst)
+print(word_count)
 
