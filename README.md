@@ -1,9 +1,9 @@
-# webscrape
-a webscraper with machine learning. 
+# The Eye of Cthulhu
+a webscraper with machine learning with hopes of one day predicting the future.  
 
 make sure to start a python evironment
 
-$ python -m venv <your-evironment>
+$ python -m venv your-evironment-here
 
 
 Packages that you need to install: 
