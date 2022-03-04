@@ -45,7 +45,6 @@ for x in redwp:
     scratch = open('scratch1.txt','w')
     scratch.writelines(cleanwp)
     scratch.close()
-
 webpage.close()
 
 #open scratch file
@@ -69,8 +68,7 @@ for x in rescra:
         x = x + "\n" #make new lines
         wordscra.writelines(x) #print lines to scratch file
 #close second scratch file 
-wordscra.close()            
-         
+wordscra.close()               
 #close first scratch file
 scratch.close()   
 
@@ -82,10 +80,7 @@ lst = []
 with open('scratch2.txt', 'r') as fi:
     for lines in fi:
         lines = lines.rstrip()
-        lst.append(lines)
-
-
-        
+        lst.append(lines)        
 #print(lst)
 fi.close()
 
@@ -99,6 +94,7 @@ cnt = dict(cnt)
 
 fi_word_count = open('wordcount.txt','w')
 fi_word_count.write(json.dumps(cnt)) #write dictionary thru json
+fi_word_count.close
 #. a new dict scratch file is now made
 
 #. remove previous scratch files
