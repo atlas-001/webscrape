@@ -1,6 +1,6 @@
 # The Eye of Cthulhu
-##
 a webscraper with machine learning with hopes of one day predicting the future.  
+##
 
 ## Instalation
 ### For Linux/Debian: 
