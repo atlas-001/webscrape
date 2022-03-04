@@ -1,12 +1,8 @@
 #! usr/bin/env python
 
-'''
-IMPORTANT: to install pyenchant for ubuntu check out 
-$ sudo apt-get install -y libenchant-dev
-$pip install pyenchant 
-'''
 
-import urllib.request, urllib.error, urllib.parse
+
+impimport urllib.request, urllib.error, urllib.parse
 import enchant #for the english dictionary
 import html2text #for cleanup of html
 import os
