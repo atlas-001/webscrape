@@ -2,7 +2,12 @@
 
 
 
-import imp_lib #consolodated imports
+impimport urllib.request, urllib.error, urllib.parse
+import enchant #for the english dictionary
+import html2text #for cleanup of html
+import os
+from collections import Counter
+import json
 
 
 ed = enchant.Dict("en_US") # voila the english dictionary

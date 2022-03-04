@@ -3,5 +3,5 @@ import getlinks
 
 print("test script begin")
 sleep(0.25)
-getlinks.linkler()
+getlinks.linker()
 print("test script end")

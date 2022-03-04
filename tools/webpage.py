@@ -11,6 +11,7 @@ import enchant #for the english dictionary
 import html2text #for cleanup of html
 import os
 from collections import Counter
+import json
 
 
 ed = enchant.Dict("en_US") # voila the english dictionary
@@ -88,6 +89,19 @@ with open('scratch2.txt', 'r') as fi:
 #print(lst)
 fi.close()
 
-word_count = Counter(lst)
-print(word_count)
+
+#count the words 
+cnt = Counter()
+for words in lst:
+    cnt[words] += 1
+cnt = dict(cnt)   
+#print(cnt)
+
+fi_word_count = open('wordcount.txt','w')
+fi_word_count.write(json.dumps(cnt)) #write dictionary thru json
+#. a new dict scratch file is now made
+
+#. remove previous scratch files
+#os.system("rm scratch1.txt")
+#os.system("rm scratch2.txt")
 
