@@ -2,7 +2,7 @@
 a webscraper with machine learning with hopes of one day predicting the future.  
 ##
 
-## Instalation
+## Installation
 ### For Linux/Debian: 
 (originally coded on a raspberry pi)
 
