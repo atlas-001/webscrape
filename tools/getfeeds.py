@@ -7,11 +7,18 @@ import time #for recording speed of this script and slowing down our crawling
 import urllib.request #for opening links
 import xml.etree.cElementTree as et #for dealing with xml
 import os
+import re 
+from pathlib import Path #for messing with file I/O
 
 
 
 
 def linker():
+    ''' This object retrives xml rss files from a list of feeds 
+    that are in feeds.csv for use later on. there is a small delay 
+    on the script so that it doesnt overload servers 
+    '''
+
     start = time.time() #. time my object since its a nested mess
     #print("printing from inside linker")
     with open('feeds.csv','r') as csv_feeds:
@@ -32,8 +39,19 @@ def linker():
     print("links execution time: ",end - start) 
                  
                 
-                
 
+
+def ParseXML():
+    ''' This object parses xml RSS files to feed links into 
+    webpage.py 
+    '''
+    
+    la = os.listdir() #lists all things dir in list 
+    for x in la:
+        x_pattern = re.compile('rss') #compile regex search term
+        cmpld_patt = x_pattern.search(x) #use regex to find files
+        print(cmpld_patt) #print what regex found 
+       
 
 
     
