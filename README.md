@@ -3,16 +3,20 @@ a webscraper with machine learning with hopes of one day predicting the future.
 
 make sure to start a python evironment
 
+```
 $ python -m venv your-evironment-here
-
+```
 
 Packages that you need to install: 
 
 pyenchant: 
 
+```
 $ sudo apt-get install -y libenchant-dev
 $ pip install pyenchant
+```
 
 html2text:
-
+```
 $ pip install html2text
+```
