@@ -46,12 +46,31 @@ def ParseXML():
     webpage.py 
     '''
     
+    #. this part is for looking in my dir for files
     la = os.listdir() #lists all things dir in list 
+    fi_list = []
     for x in la:
-        x_pattern = re.compile('rss') #compile regex search term
-        cmpld_patt = x_pattern.search(x) #use regex to find files
-        print(cmpld_patt) #print what regex found 
-       
+        #x_pattern = re.compile('rss') #compile regex search term
+        cmpld_patt = re.match('^rss',x) #use regex to find files
+        #print(cmpld_patt) #print what regex found
+        if cmpld_patt:
+            #print(cmpld_patt.string, type(cmpld_patt.string)) #print what regex found
+            fi_list.append(cmpld_patt.string) #gives list of XML files to work with
+            
+        else:
+            #. other files get dumped here
+            pass 
+        
+    #print(fi_list)
+
+    #get those xml files
+    for fi in fi_list:
+        #fi = "'" + fi + "'"
+        with open(fi,'r') as concat_xml:
+            reed = concat_xml.read()
+            print(reed)
+
+        
 
 
     
