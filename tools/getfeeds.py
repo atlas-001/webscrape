@@ -1,14 +1,14 @@
-
+#! usr/bin/env python
 
 #import imp_lib #from inside the repo
 #import feedparser
-import csv
+import csv #commma seperated values
 import time #for recording speed of this script and slowing down our crawling
 import urllib.request #for opening links
-import xml.etree.cElementTree as et #for dealing with xml
-import os
-import re 
-from pathlib import Path #for messing with file I/O
+import xml.etree.cElementTree as ET #for dealing with xml
+import os #operating system commands
+import re #regular expressions 
+#from pathlib import Path #for messing with file I/O
 
 
 
@@ -56,19 +56,37 @@ def ParseXML():
         if cmpld_patt:
             #print(cmpld_patt.string, type(cmpld_patt.string)) #print what regex found
             fi_list.append(cmpld_patt.string) #gives list of XML files to work with
-            
         else:
             #. other files get dumped here
             pass 
         
     #print(fi_list)
 
-    #get those xml files
+    #get those links from xml files
+    xmltxt = open('xml-links.txt','w')
     for fi in fi_list:
         #fi = "'" + fi + "'"
-        with open(fi,'r') as concat_xml:
-            reed = concat_xml.read()
-            print(reed)
+        tree = ET.parse(fi) #open and parse the xml files
+        root = tree.getroot() #get the roots
+        _roots = root.getchildren()
+        for channel in _roots:   
+            item = channel.getchildren()
+            for things in item:
+                for txt in things:
+                    xmltxt.write(txt.text + '\n') #write txt from insid item tag 2 txt doc
+    xmltxt.close()
+    xmltxt = open('xml-links.txt','r') #open and read 
+    reed_xmltxt = xmltxt.read().splitlines() #get lines into list w/out newline symbols 
+    #print(reed_xmltxt)
+    _all_links_txt = open('alllinks.txt','w')
+    for line in reed_xmltxt:
+        find_links = re.match('^http',line)
+        if find_links:
+            _all_links_txt.write(find_links.string + '\n')
+        else:
+            pass
+        
+
 
         
 

@@ -3,5 +3,5 @@ import getfeeds
 
 print("test script begin")
 sleep(0.25)
-getfeeds.linker()
+getfeeds.ParseXML()
 print("test script end")
