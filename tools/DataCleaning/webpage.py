@@ -11,8 +11,13 @@ def Webpage():
 
     ed = enchant.Dict("en_US") # voila the english dictionary
     #ht = html2text.HTML2Text() #for cleanup
-
+    '''
     #given URL
+    all_webpages_list = gf.Feeder()
+    for webpage in all_webpages_list:
+        time.sleep("waiting 30 secs",30)
+        url = webpage
+    '''
     url = 'https://www.bbc.com/news/world-europe-60365017'
     #url = 'https://www.bbc.co.uk/news/world-57386353'
 

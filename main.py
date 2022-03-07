@@ -12,8 +12,19 @@ import tools.DataCleaning.webpage as wp
 #gf.ParseXML()
 
 #parse the webpage
+#wp.Webpage()
+
+#feed links into webpage this should be done inside of webpage when done 
+#gf.Feeder()
+'''
+import time 
+all_webpages_list = gf.Feeder()
+def webpages():
+    for things in all_webpages_list:
+        webpage = things
+        yield print(webpage)
+webpages()
+'''
+
 wp.Webpage()
-
-
-
 

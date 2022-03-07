@@ -93,6 +93,10 @@ def ParseXML():
 def Feeder():
     ''' for throwing links down the hatch in webpage.py '''
     print("starting to feed links into webpage.py")
+    with open('alllinks.txt','r') as links:
+        reed = links.read().splitlines()
+    return reed
+
 
 
         
