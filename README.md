@@ -2,6 +2,10 @@
 a webscraper with machine learning with hopes of one day predicting the future.  
 ##
 
+## Instructions
+
+you should be able to run a lot of features already with the main.py at the top of the repo
+
 ## Installation
 ### For Linux/Debian: 
 (originally coded on a raspberry pi)

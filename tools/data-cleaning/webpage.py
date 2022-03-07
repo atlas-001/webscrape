@@ -1,11 +1,5 @@
 #! usr/bin/env python
 
-'''
-IMPORTANT: to install pyenchant for ubuntu check out 
-$ sudo apt-get install -y libenchant-dev
-$pip install pyenchant 
-'''
-
 import urllib.request, urllib.error, urllib.parse
 import enchant #for the english dictionary
 import html2text #for cleanup of html
@@ -18,20 +12,21 @@ ed = enchant.Dict("en_US") # voila the english dictionary
 #ht = html2text.HTML2Text() #for cleanup
 
 #given URL
-url = 'https://www.bbc.com/news/world-europe-60365017'
+#url = 'https://www.bbc.com/news/world-europe-60365017'
 #url = 'https://www.bbc.co.uk/news/world-57386353'
+
 
 
 response = urllib.request.urlopen(url)
 webContent = response.read()
 
 #open and download a webpage
-f = open('web-pg-download.html', 'wb')
+f = open('./webpage-DLs/web-pg-download.html', 'wb')
 f.write(webContent)
 
 
 #start parsing up things 
-webpage = open('web-pg-download.html','r')
+webpage = open('./webpage-DLs/web-pg-download.html','r')
 redwp = webpage.readlines()
 #print(type(redwp))
 
