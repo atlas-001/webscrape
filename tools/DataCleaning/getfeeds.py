@@ -21,13 +21,16 @@ def linker():
 
     start = time.time() #. time my object since its a nested mess
     #print("printing from inside linker")
-    with open('feeds.csv','r') as csv_feeds:
+    cwd = os.getcwd()
+    where_feeds = cwd + '/tools/DataCleaning/feeds.csv' #at this pnt you should b using main.py
+    with open(where_feeds,'r') as csv_feeds:
+        print('getting you your RSS feeds!')
         csv_read = csv.reader(csv_feeds) #open RSSfeed file 
         #print(csv_read)
         for sepval in csv_read:
             #print(sepval) #put my RSSfeed file into a list
             for val in sepval:
-                comman = 'wget ' + val
+                comman = 'wget ' + val  #when you get a chance its probably better to use curl
                 print("script waiting 30sec to download next file")
                 request_start = time.time()
                 time.sleep(30) #we're going to start conservatively at 30sec
@@ -85,7 +88,15 @@ def ParseXML():
             _all_links_txt.write(find_links.string + '\n')
         else:
             pass
-        
+
+
+def Feeder():
+    ''' for throwing links down the hatch in webpage.py '''
+    print("starting to feed links into webpage.py")
+    with open('alllinks.txt','r') as links:
+        reed = links.read().splitlines()
+    return reed
+
 
 
         
