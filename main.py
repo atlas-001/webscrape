@@ -4,7 +4,16 @@
 #. importing works like this : from application.app.folder.file import func_name
 import tools.DataCleaning.getfeeds as gf 
 import tools.DataCleaning.webpage as wp
- 
+import os
+
+#change directory to scratch
+cur_wd = os.getcwd()
+print('current working directory: ',os.getcwd())
+path_cmd = cur_wd + '/scratch/'
+os.chdir(path_cmd)
+print('now in: ',os.getcwd())
+
+
 #get me my rss feeds
 #gf.linker()
 
@@ -16,15 +25,11 @@ import tools.DataCleaning.webpage as wp
 
 #feed links into webpage this should be done inside of webpage when done 
 #gf.Feeder()
-'''
-import time 
-all_webpages_list = gf.Feeder()
-def webpages():
-    for things in all_webpages_list:
-        webpage = things
-        yield print(webpage)
-webpages()
-'''
 
-wp.Webpage()
+# for opening up webpages and then getting word counts
+#wp.Webpage()
 
+
+#change directory back to top of repo 
+os.chdir('../')
+print('ended script. changed dir. now in: ',os.getcwd())
