@@ -4,7 +4,7 @@
 #import feedparser
 import csv #commma seperated values
 import time #for recording speed of this script and slowing down our crawling
-import urllib.request #for opening links
+import urllib.request #for opening links LOOOKS LIKE ITS NOT BEING USED????
 import xml.etree.cElementTree as ET #for dealing with xml
 import os #operating system commands
 import re #regular expressions 
@@ -21,8 +21,8 @@ def linker():
 
     start = time.time() #. time my object since its a nested mess
     #print("printing from inside linker")
-    cwd = os.getcwd()
-    where_feeds = cwd + '/tools/DataCleaning/feeds.csv' #at this pnt you should b using main.py
+    #cwd = os.getcwd()
+    where_feeds = '../tools/DataCleaning/feeds.csv' #at this pnt u shld b using main.py nd /scratch/
     with open(where_feeds,'r') as csv_feeds:
         print('getting you your RSS feeds!')
         csv_read = csv.reader(csv_feeds) #open RSSfeed file 
@@ -41,28 +41,35 @@ def linker():
     end = time.time()
     print("links execution time: ",end - start) 
                  
-                
+def Feeder():
+    ''' for throwing links down the hatch in webpage.py '''
+    print("starting to feed links into webpage.py")
+    with open('alllinks.txt','r') as links:
+        reed = links.read().splitlines()
+    return reed                
 
 
-def ParseXML():
+def ParseXML_BBC():
     ''' This object parses xml RSS files to feed links into 
-    webpage.py 
+    webpage.py SPECFIC TO the BBC
     '''
     
     #. this part is for looking in my dir for files
     la = os.listdir() #lists all things dir in list 
     fi_list = []
+
+    #FOR FINDING LINKS FROM WEBSITE RSS FEEDS
     for x in la:
         #x_pattern = re.compile('rss') #compile regex search term
-        cmpld_patt = re.match('^rss',x) #use regex to find files
+        BBC_cmpld_patt = re.match('^rss',x) #use regex to find files USED FOR BBC NEWS
         #print(cmpld_patt) #print what regex found
-        if cmpld_patt:
+        if BBC_cmpld_patt:
             #print(cmpld_patt.string, type(cmpld_patt.string)) #print what regex found
-            fi_list.append(cmpld_patt.string) #gives list of XML files to work with
+            fi_list.append(BBC_cmpld_patt.string) #gives list of XML files to work with
         else:
             #. other files get dumped here
             pass 
-        
+    
     #print(fi_list)
 
     #get those links from xml files
@@ -90,16 +97,28 @@ def ParseXML():
             pass
 
 
-def Feeder():
-    ''' for throwing links down the hatch in webpage.py '''
-    print("starting to feed links into webpage.py")
-    with open('alllinks.txt','r') as links:
-        reed = links.read().splitlines()
-    return reed
 
+def ParseXML_CNN():
+    #. this part is for looking in my dir for files
+    la = os.listdir() #lists all things dir in list 
+    fi_list = []
 
+    #FOR FINDING LINKS FROM WEBSITE RSS FEEDS
+    for x in la:
+        #x_pattern = re.compile('rss') #compile regex search term
+        BBC_cmpld_patt = re.match('^rss',x) #use regex to find files USED FOR BBC NEWS
+        #print(cmpld_patt) #print what regex found
+        if BBC_cmpld_patt:
+            #print(cmpld_patt.string, type(cmpld_patt.string)) #print what regex found
+            fi_list.append(BBC_cmpld_patt.string) #gives list of XML files to work with
+        else:
+            #. other files get dumped here
+            pass
+    
 
-        
+    #hint for adding more lines to the end of the document once you use BBC
+    #. https://www.freecodecamp.org/news/python-create-file-how-to-append-and-write-to-a-text-file/
+              
 
 
     

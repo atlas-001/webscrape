@@ -6,20 +6,24 @@ import html2text #for cleanup of html
 import os
 from collections import Counter
 import json
+import tools.DataCleaning.getfeeds as gf 
+import time
+
 
 def Webpage():
 
     ed = enchant.Dict("en_US") # voila the english dictionary
     #ht = html2text.HTML2Text() #for cleanup
-    '''
+
     #given URL
     all_webpages_list = gf.Feeder()
     for webpage in all_webpages_list:
-        time.sleep("waiting 30 secs",30)
+        wait_time = 30   #. <------------------ PUT WAIT TIME HERE
+        time.sleep(wait_time)
         url = webpage
-    '''
-    url = 'https://www.bbc.com/news/world-europe-60365017'
-    #url = 'https://www.bbc.co.uk/news/world-57386353'
+        print('waited for: ',wait_time,' sec','url accessed: ',url)
+        return url, print('waited for: ',wait_time,' sec','url accessed: ',url)
+    url = url
 
 
 
@@ -63,8 +67,7 @@ def Webpage():
     wordscra = open('scratch2.txt','w')
     for x in rescra:
         if ed.check(x) is False:
-            # Do nothing
-            y = None #some false flag thing 
+            pass
         else:  
             x = x + "\n" #make new lines
             wordscra.writelines(x) #print lines to scratch file
@@ -95,10 +98,12 @@ def Webpage():
 
     fi_word_count = open('wordcount.txt','w')
     fi_word_count.write(json.dumps(cnt)) #write dictionary thru json
-    fi_word_count.close
+    fi_word_count.close()
     #. a new dict scratch file is now made
 
+
     #. remove previous scratch files
+    '''might want to let something else clean these out'''
     #os.system("rm scratch1.txt")
     #os.system("rm scratch2.txt")
 

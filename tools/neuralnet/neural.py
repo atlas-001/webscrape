@@ -9,3 +9,9 @@ def neural():
     reed = wordcount.read()
     counts = json.loads(reed) #reconstruct the dictionary
     print(type(counts))
+    _count_keys = list(counts.keys()) #full list of words
+    _count_values = list(counts.values()) #full list of values mapped to words
+
+    
+
+    
