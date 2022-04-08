@@ -22,7 +22,7 @@ def linker():
     start = time.time() #. time my object since its a nested mess
     #print("printing from inside linker")
     cwd = os.getcwd()
-    where_feeds = cwd + '/tools/DataCleaning/feeds.csv' #at this pnt you should b using main.py
+    where_feeds = '../tools/DataCleaning/feeds.csv' #at this pnt you should b using main.py
     with open(where_feeds,'r') as csv_feeds:
         print('getting you your RSS feeds!')
         csv_read = csv.reader(csv_feeds) #open RSSfeed file 
@@ -98,6 +98,16 @@ def Feeder():
     return reed
 
 
+def CleanKaranga():
+    linklistfile = open('alllinks.txt','r') 
+    linklist = linklistfile.read().splitlines()
+    for link in linklist:
+        find_KARANGA = re.sub('KARANGA','',link)
+        if find_KARANGA:
+            print(find_KARANGA)
+        else:
+            pass
+        
 
         
 

@@ -15,10 +15,15 @@ print('now in: ',os.getcwd())
 
 
 #get me my rss feeds
-gf.linker()
+#gf.linker()
 
 #get me my news page links
 #gf.ParseXML()
+
+#clean the karanaga links
+#current work in scrape branch apr7th 2022
+gf.CleanKaranga()
+
 
 #parse the webpage
 #wp.Webpage()
