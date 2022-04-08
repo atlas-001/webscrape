@@ -15,7 +15,7 @@ print('now in: ',os.getcwd())
 
 
 #get me my rss feeds
-#gf.linker()
+gf.linker()
 
 #get me my news page links
 #gf.ParseXML()
