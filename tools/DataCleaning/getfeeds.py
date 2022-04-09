@@ -49,7 +49,7 @@ def ParseXML():
     ''' This object parses xml RSS files to feed links into 
     webpage.py 
     '''
-    
+    print('\n','parsing your xml')
     #. this part is for looking in my dir for files
     la = os.listdir() #lists all things dir in list 
     fi_list = []
@@ -89,6 +89,7 @@ def ParseXML():
             _all_links_txt.write(find_links.string + '\n')
         else:
             pass
+    print('\n','parsed xml')    
 
 
 def Feeder():
@@ -100,7 +101,8 @@ def Feeder():
 
 
 def CleanKaranga():
-    cleanedlinks_fi = open('cleanedlinks_fi','w')
+    print('\n','cleaning your links')
+    cleanedlinks_fi = open('cleanedlinks.txt','w')
     linklistfile = open('alllinks.txt','r') 
     linklist = linklistfile.read().splitlines()
     for link in linklist:
@@ -108,25 +110,34 @@ def CleanKaranga():
         if find_KARANGA:
             pass
         else:
-            print(link)
             cleanedlinks_fi.write(link + "\n")
-    linklistfile.close()
-    cleanedlinks_fi.close()
+            #print("first pass:",link)
 
     
-def Clean3():
-    cleanedlinks_fi = open('cleanedlinks_fi','w')
-    linklistfile = open('alllinks.txt','r') 
-    linklist = linklistfile.read().splitlines()
-    for link in linklist:
-        find_KARANGA = re.search('KARANGA',link)
+    #reopen and clean out gifs
+    cleanedlinks_fi = open('cleanedlinks.txt','r')
+    second_cleanedlinks_fi = open('cleanerrlinks.txt','w')
+    cleanedlinks_list = cleanedlinks_fi.read().splitlines()
+    for link in cleanedlinks_list:
+        find_KARANGA = re.search('gif',link)
         if find_KARANGA:
             pass
         else:
-            print(link)
-            cleanedlinks_fi.write(link + "\n")
+            second_cleanedlinks_fi.write(link + '\n')
+            #print('second pass:',link)
+
+    cleanedlinks_fi.close() 
+    second_cleanedlinks_fi.close()
     linklistfile.close()
-    cleanedlinks_fi.close()
+    clean_scratch = 'rm cleanedlinks.txt; mv ./cleanerrlinks.txt ./final_all_links.txt' 
+    os.system(clean_scratch)
+    print('\n','links cleaned')
+
+    
+
+   
+
+
 
 
     

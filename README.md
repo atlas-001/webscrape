@@ -32,6 +32,6 @@ getfeeds.linker() for getting rss feeds
 second...
 getfeeds.ParseXML()
 third...
-
+gf.CleanKaranga()
 
 
