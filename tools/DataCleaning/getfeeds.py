@@ -2,7 +2,8 @@
 
 #import imp_lib #from inside the repo
 #import feedparser
-import csv #commma seperated values
+import csv
+from operator import index #commma seperated values
 import time #for recording speed of this script and slowing down our crawling
 import urllib.request #for opening links
 import xml.etree.cElementTree as ET #for dealing with xml
@@ -99,17 +100,33 @@ def Feeder():
 
 
 def CleanKaranga():
+    cleanedlinks_fi = open('cleanedlinks_fi','w')
     linklistfile = open('alllinks.txt','r') 
     linklist = linklistfile.read().splitlines()
     for link in linklist:
-        find_KARANGA = re.sub('KARANGA','',link)
+        find_KARANGA = re.search('KARANGA',link)
         if find_KARANGA:
-            print(find_KARANGA)
-        else:
             pass
-        
+        else:
+            print(link)
+            cleanedlinks_fi.write(link + "\n")
+    linklistfile.close()
+    cleanedlinks_fi.close()
 
-        
+    
+def Clean3():
+    cleanedlinks_fi = open('cleanedlinks_fi','w')
+    linklistfile = open('alllinks.txt','r') 
+    linklist = linklistfile.read().splitlines()
+    for link in linklist:
+        find_KARANGA = re.search('KARANGA',link)
+        if find_KARANGA:
+            pass
+        else:
+            print(link)
+            cleanedlinks_fi.write(link + "\n")
+    linklistfile.close()
+    cleanedlinks_fi.close()
 
 
     

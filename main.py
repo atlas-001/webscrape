@@ -22,7 +22,7 @@ print('now in: ',os.getcwd())
 
 #clean the karanaga links
 #current work in scrape branch apr7th 2022
-gf.CleanKaranga()
+#gf.CleanKaranga()
 
 
 #parse the webpage
