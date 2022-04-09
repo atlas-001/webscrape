@@ -28,10 +28,15 @@ sudo apt-get install -y libenchant-dev ; pip install pyenchant; pip install html
 Pathway for getting words.. 
 
 first...
+
 getfeeds.linker() for getting rss feeds 
+
 second...
+
 getfeeds.ParseXML()
+
 third...
+
 gf.CleanKaranga()
 
 
