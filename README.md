@@ -13,7 +13,7 @@ you should be able to run a lot of features already with the main.py at the top 
 make sure to start a python evironment
 
 ```
-python -m venv your-evironment-here
+python -m venv venv
 ```
 
 Packages that you need to install: 
@@ -23,5 +23,15 @@ In linux you can probably copy and paste this command to get everything installe
 ```
 sudo apt-get install -y libenchant-dev ; pip install pyenchant; pip install html2text
 ```
+
+
+Pathway for getting words.. 
+
+first...
+getfeeds.linker() for getting rss feeds 
+second...
+getfeeds.ParseXML()
+third...
+gf.CleanKaranga()
 
 

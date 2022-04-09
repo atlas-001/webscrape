@@ -1,0 +1,4 @@
+###### Requirements file for python pip install ######
+###### Requirements with Version Specifiers ######
+html2text==2020.1.16
+pyenchant==3.2.2

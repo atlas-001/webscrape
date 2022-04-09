@@ -13,12 +13,18 @@ path_cmd = cur_wd + '/scratch/'
 os.chdir(path_cmd)
 print('now in: ',os.getcwd())
 
-
+# STEP 1
 #get me my rss feeds
 #gf.linker()
 
 #get me my news page links
-#gf.ParseXML()
+gf.ParseXML()
+
+#clean the karanaga links
+#current work in scrape branch apr7th 2022
+gf.CleanKaranga()
+
+
 
 #parse the webpage
 #wp.Webpage()
@@ -33,3 +39,5 @@ print('now in: ',os.getcwd())
 #change directory back to top of repo 
 os.chdir('../')
 print('ended script. changed dir. now in: ',os.getcwd())
+
+#blah
